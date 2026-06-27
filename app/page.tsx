@@ -7,6 +7,6 @@ export default function Home() {
 
 
 
-      this is next-aws-cicd app 2</div></>
+      this is next-aws-cicd app retry 3 </div></>
   );
 }
