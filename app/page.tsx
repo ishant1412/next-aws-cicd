@@ -7,6 +7,6 @@ export default function Home() {
 
 
 
-      this is next-aws-cicd app retry 10</div></>
+      rn its just a message tommorow it will be my portfolio</div></>
   );
 }
