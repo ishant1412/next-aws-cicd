@@ -27,4 +27,4 @@ jobs:
             npm install
             npm run build
             
-            pm2 start ../next-aws-cicd
+            pm2 restart npm --name ../next-aws-cicd -- start
