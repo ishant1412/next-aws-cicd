@@ -1,36 +1,29 @@
 name: Deploy to ec2
+
 on:
   push:
-    branches: [ main ] // you main branch
+    branches: [main]
+
 jobs:
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
-    env:
-      BUCKET: Your_Bucket_Name
-      DIST: out
-      REGION: Your_Region
-      DIST_ID: Cloudfront_id
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: executing remote ssh commands
-      uses: appleboy/ssh-action@v1 
-      with:
-
-        host: ${{secrets.HOST}}
-        username: ${{secrets.USERNAME}}
-        key: ${{secrest.KEY}}
-        port: ${{secrets.PORT}}
-        script: whoami
-         cd next-aws-cicd
-         git pull origin main
-         npm install  
-         npm run build 
-         npm run start
-         
-    
-
-    
+      - name: Executing remote SSH commands
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            whoami
+            cd next-aws-cicd
+            git pull origin main
+            npm install
+            npm run build
+            npm run start
