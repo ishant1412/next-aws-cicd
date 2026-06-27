@@ -25,6 +25,5 @@ jobs:
             cd next-aws-cicd
             git pull origin main
             npm install
-            npm run build
-            cd ..
-            pm2 start npm --name next-aws-cicd -- start
+            npm run build            
+            pm2 restart next-aws-cicd
